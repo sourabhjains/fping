@@ -745,7 +745,8 @@ int main(int argc, char** argv)
      * see also github #32 */
     if (loop_flag || count_flag) {
         if (!timeout_flag) {
-            timeout = perhost_interval;
+            timeout = perhost_interval + 10000;
+            printf ("timeout: %d\n", timeout);
             if (timeout > AUTOTUNE_TIMEOUT_MAX * 100) {
                 timeout = AUTOTUNE_TIMEOUT_MAX * 100;
             }
